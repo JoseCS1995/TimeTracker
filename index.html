@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function startTime() {
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('txt').innerHTML =
+          h + ":" + m + ":" + s;
+          var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};
+          return i;
+        }
+        </script>
+</head>
+<body onload="startTime()">
+<div id='time'><h2 id="timeHeading"></div>
+<div id='idEntry'>
+		<form id='entryForm'>
+			<h3>Authorization Verification:</h3>
+			<p>ID Number: <input id='entryField' type='text' value=' ' /></p>
+			<button id='entryButton' type='button'>Submit</button>
+		</form>
+</div>	
+
+<div id='newPunch'>
+	<form id='newPunchForm'>
+    <h3>Clock in/out</h3>
+    <div id="txt"></div>
+    <p>Name: <input id='newUserName' type='text' value='' /></p>
+		<p>ID: <input id='punchField' type='text' value='' /></p>
+		<button id='punchButton' type='button'>Punch</button>
+	</form>
+</div>
+  <script src='./main.js'></script>
+
+
+</body>
+</html>
